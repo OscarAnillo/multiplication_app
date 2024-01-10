@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+.app {
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+.form {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1em 2em;
+}
+.score {
+  margin: .5em 0;
+  font-size: 1.1rem;
+  text-align: right;
+}
+.question {
+  margin: .5em 0;
+}
+.input {
+  margin: .3em 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  outline: none;
+  padding: .5em;
+  text-align: center;
+  width: 100%;
+}
+.input::placeholder {
+  font-size: 1.1rem;
+}
+.btn {
+  background-color: bisque;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: .5em 0;
+  padding: .75em 2em;
+  width: 100%;
+}
