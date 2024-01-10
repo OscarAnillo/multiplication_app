@@ -6,7 +6,7 @@ function App() {
   const [num1, setNum1] = useState(1);
   const [num2, setNum2] = useState(1);
   const [score, setScore] = useState(0);
-  const [questionCounter, setQuestionCounter] = useState(1);
+  const [questionCounter, setQuestionCounter] = useState(0);
   const correctAnswer = num1 * num2;
 
   const submitHandler = (e) => {
@@ -25,7 +25,7 @@ function App() {
   const resetScore = () => {
     confirm("Do you want to reset the score?");
     setScore(0);
-    setQuestionCounter(0);
+    setQuestionCounter(1);
   };
 
   useEffect(() => {
