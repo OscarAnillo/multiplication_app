@@ -51,6 +51,8 @@ function App() {
           type="text"
           className="input"
           placeholder="Enter your answer"
+          autoFocus
+          autoComplete="off"
           value={userInput}
           onChange={(e) => setUserInput(Number(e.target.value))}
         />
