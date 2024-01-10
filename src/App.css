@@ -17,9 +17,14 @@
   border-radius: 5px;
   padding: 1em 2em;
 }
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .score {
   margin: .5em 0;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   text-align: right;
 }
 .question {
@@ -27,7 +32,7 @@
 }
 .input {
   margin: .3em 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   outline: none;
   padding: .5em;
@@ -41,8 +46,17 @@
   background-color: bisque;
   border: none;
   border-radius: 5px;
+  font-size: 1.3rem;
   font-weight: bold;
   margin: .5em 0;
   padding: .75em 2em;
   width: 100%;
+}
+.reset {
+  background-color: transparent;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: red;
+  font-weight: bold;
+  padding: .5em 1em;
 }

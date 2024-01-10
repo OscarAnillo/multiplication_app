@@ -5,6 +5,8 @@ function App() {
   const [userInput, setUserInput] = useState("");
   const [num1, setNum1] = useState(1);
   const [num2, setNum2] = useState(1);
+  const [score, setScore] = useState(0);
+  const [questionCounter, setQuestionCounter] = useState(1);
   const correctAnswer = num1 * num2;
 
   const submitHandler = (e) => {
@@ -13,37 +15,36 @@ function App() {
       return alert("Please provide your result first");
     }
     if (userInput === correctAnswer) {
-      score++;
-      updateLocalStorage();
+      setScore((prevState) => prevState + 1);
     } else {
-      score--;
-      updateLocalStorage();
+      setScore((prevState) => prevState - 1);
     }
     setUserInput("");
   };
 
-  function updateLocalStorage() {
-    localStorage.setItem("score", JSON.stringify(score));
-  }
-  let score = JSON.parse(localStorage.getItem("score"));
-  if (!score) {
-    score = 0;
-  }
+  const resetScore = () => {
+    confirm("Do you want to reset the score?");
+    setScore(0);
+    setQuestionCounter(0);
+  };
 
   useEffect(() => {
     const num1Random = Math.floor(Math.random() * 10) + 1;
     const num2Random = Math.floor(Math.random() * 10) + 1;
     setNum1(num1Random);
     setNum2(num2Random);
-
-    const scoreEl = document.getElementById("score");
-    scoreEl.innerHTML = `Score: ${score}`;
+    setQuestionCounter((prevState) => prevState + 1);
   }, [score]);
 
   return (
     <div className="app">
       <form className="form" onSubmit={submitHandler}>
-        <p className="score" id="score"></p>
+        <div className="row">
+          <p>Question #{questionCounter}</p>
+          <p className="score" id="score">
+            Score: {score}
+          </p>
+        </div>
         <h1 id="question" className="question">
           What is {num1} times {num2}?
         </h1>
@@ -58,6 +59,9 @@ function App() {
         />
         <button type="submit" className="btn">
           Submit
+        </button>
+        <button className="reset" type="submit" onClick={resetScore}>
+          Reset Score
         </button>
       </form>
     </div>
